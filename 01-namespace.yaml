@@ -1,4 +1,4 @@
-apiverson: v1
+apiVersion: v1
 kind: Namespace
 metadata:
   name: roboshop
@@ -6,5 +6,5 @@ metadata:
     project: roboshop
     environment: dev
     purpose: poc
-    
+
 
