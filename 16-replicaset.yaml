@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: ReplicaSet
+metadata:
+  name: nginx
+labels:
+    project: roboshop
+    purpose: rs-demo 
+    tier : frontend
+spec:
+  replicas: 3 
+  selector: 
+    # using these labels as selector, replicaset will manage all pods with these labels
+    matchLabels:
+      project: roboshop
+      purpose: rs-demo 
+      tier : frontend
+      # this is pod definition, pod is subset of replicaset, so we can use pod labels as selector
+  template:
+    metadata:
+      labels:
+        project: roboshop
+        purpose: rs-demo 
+        tier : frontend
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
