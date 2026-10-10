@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: ReplicaSet
+kind: Deployment
 metadata:
   name: nginx
 labels:
@@ -7,6 +7,8 @@ labels:
     purpose: rs-demo 
     tier : frontend
     component: frontend
+annotations:
+  kubernetes.io/change-cause: "moving to 1.29.7"
 spec:
   replicas: 1
   selector: 
@@ -27,4 +29,4 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:stable-alpine3.23-perl
+        image: nginx:1.29.7
